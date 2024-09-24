@@ -1,0 +1,212 @@
+.container {
+    max-width: 1000px;
+    margin-right: 250px;
+    margin-top: 50px;
+
+}
+
+p.bio {
+    text-align: justify;
+    margin-bottom: 75px;
+    text-indent: 30px;
+}
+
+p.bio-ed {
+    text-align: center;
+    margin-bottom: 75px;
+}
+
+hr {
+    width: 300px;
+    height: 2px;
+    background-color: #2199e8;
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+
+img.logo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+h1.name {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+span.slogan {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: rgba(51, 51, 51, 0.7);
+    margin-bottom: 35px;
+}
+
+.social-logo ul {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.social-logo ul li {
+    display: inline;
+    background: rgba(204, 204, 204, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 150ms ease-in-out;
+}
+
+.social-logo ul li:hover {
+    background: #ccc;
+}
+
+h5 {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 50px;
+    margin-bottom: px;
+    text-transform: uppercase;
+}
+
+.old-standard-tt-regular {
+    font-family: "Old Standard TT", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+h4 {
+    font-family: "Old Standard TT", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+    font-size: 1.1rem;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+
+.work {
+    margin-bottom: 20px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px 0px;
+    color: rgba(51, 51, 51, 0.5);
+}
+
+.sidebar {
+    width: 325px;
+    /* ใช้ 100% ของพื้นที่ที่มี */
+    min-width: 325px;
+    /* กำหนดค่าขั้นต่ำ */
+    height: 100%;
+    /* สูงเต็ม */
+    position: fixed;
+    /* อยู่คงที่ */
+    overflow-y: auto;
+    /* scroll ถ้าจำเป็น */
+}
+
+.nav-link {
+    white-space: nowrap;
+    /* ป้องกันการแบ่งบรรทัด */
+}
+
+
+.main-content {
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    /* ทำให้ inner เต็มความกว้าง */
+}
+
+.carousel-item {
+    min-width: 100%;
+    /* กำหนดให้แต่ละ item มีความกว้าง 100% */
+    box-sizing: border-box;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    /* ใช้การจัดตำแหน่งแบบ absolute */
+    top: 50%;
+    /* ตั้งกลางแนวตั้ง */
+    transform: translateY(-50%);
+    /* เลื่อนขึ้นครึ่งหนึ่งของความสูง */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* ทำให้พื้นหลังเข้มขึ้น */
+    border-radius: 50%;
+    /* ทำให้ปุ่มมีรูปทรงกลม */
+    width: 40px;
+    /* กำหนดความกว้าง */
+    height: 40px;
+    /* กำหนดความสูง */
+}
+
+.carousel-control-prev {
+    left: 0cqb;
+    /* ตั้งให้ไปทางซ้าย */
+}
+
+.carousel-control-next {
+    right: 0px;
+    /* ตั้งให้ไปทางขวา */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    color: #333333 !important;
+}
+
+address {
+    color: rgba(104, 104, 104, 0.7);
+    /* ปรับความทึบของสี */
+}
+
+.longs {
+    width: 700px;
+    height: 1px;
+    margin-left: 10px;
+    background-color: #252525;
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+
+.longs1 {
+    width: 700px;
+    height: 1px;
+    margin-left: 10px;
+    background-color: #252525;
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+
