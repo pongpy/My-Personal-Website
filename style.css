@@ -1,21 +1,42 @@
-.container {
-    max-width: 1000px;
-    margin-right: 250px;
-    margin-top: 50px;
-
+/* Main content layout */
+.main-content {
+    display: flex; /* ใช้ flexbox */
 }
 
+/* Container สำหรับเนื้อหา */
+.container {
+    max-width: 1000px; /* ความกว้างสูงสุด */
+    margin: 50px auto; /* กึ่งกลางหน้าจอ */
+    padding-left: 0; /* ไม่มีระยะห่างด้านซ้าย */
+    padding-right: 0; /* ไม่มีระยะห่างด้านขวา */
+}
+
+/* เมื่อ sidebar ถูกเปิด */
+.sidebar.active + .container {
+    margin-left: 325px; /* ระยะห่างด้านซ้ายเมื่อ sidebar เปิด */
+}
+
+/* สำหรับมือถือ */
+@media (max-width: 768px) {
+    .container {
+        width: 100%; /* ใช้ความกว้างเต็มที่ */
+        padding-left: 10px; /* ระยะห่างด้านซ้าย */
+        padding-right: 10px; /* ระยะห่างด้านขวา */
+    }
+
+    .content {
+        margin-left: 0; /* ไม่มีระยะห่างซ้ายเมื่อ sidebar ซ่อน */
+    }
+}
+
+/* เนื้อหาชีวิต */
 p.bio {
     text-align: justify;
     margin-bottom: 75px;
     text-indent: 30px;
 }
 
-p.bio-ed {
-    text-align: center;
-    margin-bottom: 75px;
-}
-
+/* เส้นแบ่ง */
 hr {
     width: 300px;
     height: 2px;
@@ -24,8 +45,9 @@ hr {
     margin-top: 10px;
 }
 
+/* โลโก้ */
 img.logo {
-    width: 200px;
+    width: 170px;
     height: 200px;
     border-radius: 50%;
     display: block;
@@ -34,6 +56,7 @@ img.logo {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
 }
 
+/* ชื่อ */
 h1.name {
     text-transform: uppercase;
     font-size: 1.5rem;
@@ -42,6 +65,7 @@ h1.name {
     margin-top: 20px;
 }
 
+/* สโลแกน */
 span.slogan {
     display: block;
     text-align: center;
@@ -51,6 +75,7 @@ span.slogan {
     margin-bottom: 35px;
 }
 
+/* โลโก้โซเชียล */
 .social-logo ul {
     margin: 0;
     text-align: center;
@@ -71,19 +96,20 @@ span.slogan {
     background: #ccc;
 }
 
+/* ติดต่อ */
 h5 {
     text-align: center;
     font-size: 1.1rem;
     margin-top: 50px;
-    margin-bottom: px;
     text-transform: uppercase;
 }
 
+/* ฟอนต์ */
 .old-standard-tt-regular {
     font-family: "Old Standard TT", serif;
     font-weight: 400;
     font-style: normal;
-  }
+}
 
 h4 {
     font-family: "Old Standard TT", serif;
@@ -100,40 +126,79 @@ h4 {
     margin-bottom: 20px;
 }
 
+/* ฟุตเตอร์ */
 .footer {
     text-align: center;
     padding: 20px 0px;
     color: rgba(51, 51, 51, 0.5);
 }
 
+/* Sidebar */
 .sidebar {
     width: 325px;
-    /* ใช้ 100% ของพื้นที่ที่มี */
     min-width: 325px;
-    /* กำหนดค่าขั้นต่ำ */
     height: 100%;
-    /* สูงเต็ม */
     position: fixed;
-    /* อยู่คงที่ */
     overflow-y: auto;
-    /* scroll ถ้าจำเป็น */
+    transition: transform 0.3s ease; /* เพิ่มการเคลื่อนไหว */
+    transform: translateX(-100%); /* ซ่อน sidebar */
+    top: 0; /* ตั้งให้เริ่มจากด้านบน */
+    left: 0; /* ตั้งให้เริ่มจากด้านซ้าย */
 }
 
+.sidebar.active {
+    transform: translateX(0); /* แสดง sidebar เมื่อ active */
+    height: 100%; /* ให้สูงเท่ากับหน้าจอ */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    #toggleSidebar {
+        display: block; /* แสดงปุ่มลูกศรบนมือถือ */
+        position: absolute; /* ให้ปุ่มอยู่บนสุด */
+        top: 20px; /* ปรับตำแหน่งตามที่ต้องการ */
+        left: 10px; /* ปรับตำแหน่งตามที่ต้องการ */
+        background-color: #2199e8; /* สีพื้นหลัง */
+        color: white; /* สีตัวอักษร */
+        border: none; /* ไม่ต้องมีขอบ */
+        padding: 10px; /* ระยะห่างในปุ่ม */
+        border-radius: 5px; /* มุมโค้ง */
+        z-index: 1000; /* ให้อยู่บนสุด */
+    }
+    
+}
+/* สำหรับ Desktop */
+@media (min-width: 769px) {
+    .content {
+        margin-left: 325px; /* ระยะห่างซ้ายเพื่อไม่ให้ทับ sidebar เมื่อ sidebar เปิด */
+    }
+    .sidebar {
+        transform: translateX(0); /* แสดง sidebar บน PC */
+    }
+
+    #toggleSidebar {
+        display: none; /* ซ่อนปุ่มลูกศรบน PC */
+    }
+}
+
+/* การนำทาง */
 .nav-link {
-    white-space: nowrap;
-    /* ป้องกันการแบ่งบรรทัด */
+    white-space: nowrap; /* ป้องกันการแบ่งบรรทัด */
 }
 
-
-.main-content {
-    display: flex;
-}
-
+/* เนื้อหาภายใน */
 .content {
     flex: 1;
     padding: 20px;
+    transition: margin-left 0.3s ease; /* เพิ่มการเคลื่อนไหวเมื่อ sidebar เปิด/ปิด */
 }
 
+/* เมื่อ sidebar ถูกปิดให้ปรับ margin */
+.sidebar.active ~ .content {
+    margin-left: 325px; /* ให้ container content เต็มความกว้างเมื่อ sidebar ถูกปิด */
+}
+
+/* Carousel */
 .carousel {
     position: relative;
     overflow: hidden;
@@ -145,41 +210,31 @@ h4 {
     display: flex;
     transition: transform 0.5s ease;
     width: 100%;
-    /* ทำให้ inner เต็มความกว้าง */
 }
 
 .carousel-item {
-    min-width: 100%;
-    /* กำหนดให้แต่ละ item มีความกว้าง 100% */
+    min-width: 100%; /* กำหนดให้แต่ละ item มีความกว้าง 100% */
     box-sizing: border-box;
 }
 
+/* ปุ่ม carousel */
 .carousel-control-prev,
 .carousel-control-next {
-    position: absolute;
-    /* ใช้การจัดตำแหน่งแบบ absolute */
-    top: 50%;
-    /* ตั้งกลางแนวตั้ง */
-    transform: translateY(-50%);
-    /* เลื่อนขึ้นครึ่งหนึ่งของความสูง */
-    background-color: rgba(0, 0, 0, 0.5);
-    /* ทำให้พื้นหลังเข้มขึ้น */
-    border-radius: 50%;
-    /* ทำให้ปุ่มมีรูปทรงกลม */
-    width: 40px;
-    /* กำหนดความกว้าง */
-    height: 40px;
-    /* กำหนดความสูง */
+    position: absolute; /* ใช้การจัดตำแหน่งแบบ absolute */
+    top: 50%; /* ตั้งกลางแนวตั้ง */
+    transform: translateY(-50%); /* เลื่อนขึ้นครึ่งหนึ่งของความสูง */
+    background-color: rgba(0, 0, 0, 0.5); /* ทำให้พื้นหลังเข้มขึ้น */
+    border-radius: 50%; /* ทำให้ปุ่มมีรูปทรงกลม */
+    width: 40px; /* กำหนดความกว้าง */
+    height: 40px; /* กำหนดความสูง */
 }
 
 .carousel-control-prev {
-    left: 0cqb;
-    /* ตั้งให้ไปทางซ้าย */
+    left: 0; /* ตั้งให้ไปทางซ้าย */
 }
 
 .carousel-control-next {
-    right: 0px;
-    /* ตั้งให้ไปทางขวา */
+    right: 0px; /* ตั้งให้ไปทางขวา */
 }
 
 .carousel-control-prev-icon,
@@ -187,11 +242,12 @@ h4 {
     color: #333333 !important;
 }
 
+/* ที่อยู่ */
 address {
-    color: rgba(104, 104, 104, 0.7);
-    /* ปรับความทึบของสี */
+    color: rgba(104, 104, 104, 0.7); /* ปรับความทึบของสี */
 }
 
+/* เส้นยาว */
 .longs {
     width: 700px;
     height: 1px;
@@ -209,4 +265,3 @@ address {
     margin-bottom: 50px;
     margin-top: 10px;
 }
-

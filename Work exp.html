@@ -41,6 +41,9 @@
 
 <body>
     <div class="main-content"></div>
+    <button id="toggleSidebar" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i> <!-- ใช้ไอคอนลูกศรจาก Font Awesome -->
+    </button>
     <!--Sidebar-->
     <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
@@ -96,7 +99,7 @@
 
     
     <div class="container content">
-        <img class="logo" src="image/header logo.png" alt="">
+        <img class="logo" src="image/Me1.jpg" alt="">
         <h1 class="name">Pasapong Boonklin</h1>
         <span class="slogan">My Personal Website</span>
         <div class="social-logo">
@@ -168,6 +171,19 @@
     </div>
 </div>
 <script src="js/bootstrap.min.js"></script>
+<script>
+    function toggleSidebar() {
+ const sidebar = document.querySelector('.sidebar');
+ sidebar.classList.toggle('active'); // เพิ่มหรือลด class 'active'
+
+ const button = document.getElementById('toggleSidebar');
+ if (sidebar.classList.contains('active')) {
+     button.innerHTML = '<i class="fas fa-times"></i>'; // เปลี่ยนเป็นไอคอน "x" เมื่อเปิด sidebar
+ } else {
+     button.innerHTML = '<i class="fas fa-bars"></i>'; // เปลี่ยนกลับเป็นสามขีดเมื่อปิด sidebar
+ }
+}
+ </script>
 </body>
 
 </html>

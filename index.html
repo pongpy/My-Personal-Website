@@ -15,6 +15,9 @@
 <body>
 
     <div class="main-content">
+        <button id="toggleSidebar" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i> <!-- ใช้ไอคอนลูกศรจาก Font Awesome -->
+        </button>
         <!--Sidebar-->
         <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary">
             <a href="/"
@@ -67,10 +70,11 @@
             </ul>
             <hr>
         </div>
+        
         <!--END SIDEBAR-->
 
         <div class="container content">
-            <img class="logo" src="image/header logo.png" alt="">
+            <img class="logo" src="image/Me1.jpg" alt="">
             <h1 class="name">Pasapong Boonklin</h1>
             <span class="slogan">My Personal Website</span>
             <div class="social-logo">
@@ -78,7 +82,8 @@
                     <li><a href="https://www.facebook.com/pongpii.pongpii/" target="_blank"><i
                                 class="fab fa-facebook"></i></a></li>
                     <li><a href="https://line.me/ti/p/ZWSbXDvSLn" target="_blank"><i class="fab fa-line"></i></a></li>
-                    <li><a href="https://www.instagram.com/pongpii/?__pwa=1" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.instagram.com/pongpii/?__pwa=1" target="_blank"><i
+                                class="fab fa-instagram"></i></a></li>
                 </ul>
             </div>
             <p class="bio">
@@ -111,6 +116,22 @@
         </div>
     </div>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+       function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const container = document.querySelector('.content');
+
+    sidebar.classList.toggle('active'); // เพิ่มหรือลด class 'active'
+    container.classList.toggle('collapsed'); // เพิ่มหรือลด class 'collapsed'
+
+    const button = document.getElementById('toggleSidebar');
+    if (sidebar.classList.contains('active')) {
+        button.innerHTML = '<i class="fas fa-times"></i>'; // เปลี่ยนเป็นไอคอน "x"
+    } else {
+        button.innerHTML = '<i class="fas fa-bars"></i>'; // เปลี่ยนกลับเป็นสามขีด
+    }
+}
+    </script>
 </body>
 
 </html>
